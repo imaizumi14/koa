@@ -475,7 +475,7 @@ function updateEnemy() {
     enemyTotal++
   } else {
     enemyGenerateCounter += EnemyGenerateCounterInc
-    enemyGenerateCounter += score * EnemyGenerateCounterInc
+    enemyGenerateCounter += 1 / HalScore * score * score * EnemyGenerateCounterInc
     if (enemyGenerateCounter > random()) {
       x = kirbyPosX + CanvasWidth
       y = random(EnemyPosYmin, EnemyPosYmax)
@@ -787,7 +787,7 @@ function drawInfo() {
 }
 
 function drawImage(targetImg, x, y, sizeX, sizeY, offsetX, offsetY) {
-  image(targetImg, x - kirbyPosX + KirbyPosOffsetX + screenShakeOffsetX, Ymax - y - sizeY - screenShakeOffsetY,
+  image(targetImg, Math.round(x - kirbyPosX + KirbyPosOffsetX + screenShakeOffsetX), Math.round(Ymax - y - sizeY - screenShakeOffsetY),
     sizeX, sizeY, offsetX, offsetY, sizeX, sizeY)
 }
 
